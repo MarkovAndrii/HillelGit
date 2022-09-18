@@ -1,4 +1,4 @@
-package lesson2;
+package lesson3.lesson2;
 
 public class House {
     private Table table;

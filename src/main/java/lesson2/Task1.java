@@ -1,4 +1,4 @@
-package lesson2;
+package lesson3.lesson2;
 
 public class Task1 {
     private byte varByte;
