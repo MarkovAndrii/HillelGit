@@ -4,12 +4,12 @@ public class StringHelper {
 
     public static String stringOperations(String string, char[] charArray) {
         String stringResult = null;
-        if (String.copyValueOf(charArray).isEmpty()) {  //проверка массива символов на null
+        if(charArray==null){  //проверка массива символов на null(при использ. Scanner никогда не будет виполняться, т.е. всегда false)
             System.out.println("Array is null");
         } else {
             String stringOfArray = String.copyValueOf(charArray);
             if (string.isBlank() || stringOfArray.isBlank()) {  //проверка двух строк на пустоту
-                System.out.println("One of string is null");
+                System.out.println("One of string is empty");
             } else {
                 String stringUp = string.toUpperCase().strip() + " ";
                 String stringLow = stringOfArray.toLowerCase().strip();
