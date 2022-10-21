@@ -16,7 +16,7 @@ public class InitializationData {
             mail.add(newString + emailDomain);
             map.put(newString + emailDomain, newString);
         }
-        for (int i = 0; i < 10; i++) {  //add 10 identical values
+        for (int i = 0; i < 10; i++) {  //add 10 identical values //need add contains
             String addValue = "value";
             name.add(addValue);
             mail.add(addValue + emailDomain);

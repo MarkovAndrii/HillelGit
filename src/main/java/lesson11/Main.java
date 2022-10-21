@@ -11,10 +11,10 @@ public class Main {
         Information updateNewUser = updateInformation(integerList, newUser);
         List<Byte> byteList = List.of((byte) 12, (byte) 55, (byte) 1);
         updateInformation(byteList, newUser);
-        List<Long> longList = List.of((long) 345, (long) 56, (long) 99);
+        List<Long> longList = List.of(345L, 56L, 99L);
         updateInformation(longList, newUser);
 
-        Output(updateNewUser);
+        output(updateNewUser);
     }
 
     private static Information updateInformation(List<? extends Number> numbersList, Information newObject) {
@@ -30,7 +30,7 @@ public class Main {
         return newObject;
     }
 
-    private static void Output(Information correctObject) {
+    private static void output(Information correctObject) {
         System.out.println("Name: " + correctObject.getUserName());
         System.out.println("Mail: " + correctObject.getUserMail());
         System.out.println("Mail & name: " + correctObject.getMailForUser());
