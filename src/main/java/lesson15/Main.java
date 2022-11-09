@@ -59,13 +59,13 @@ public class Main {
         System.out.println("Task 6 - firstElement: " + firstElement);
 
         //7
-        Person Ted = new Person(80);
+        Person ted = new Person(80);
 
         List<Integer> integerList = Arrays.asList(5, 10, 43, 55, 91, 16, 82);
         List<String> personList = integerList.stream()
                 .map(Person::new)   //ссилка на констуктор
                 .filter(Person::filterOld)  //ссилка на статич.метод
-                .filter(Ted::comparePerson) //ссилка на нестатич.метод конкретного обьекта
+                .filter(ted::comparePerson) //ссилка на нестатич.метод конкретного обьекта
                 .map(Person::toString)  //ссилка на нестатич.метод любого обьекта конкр.типа
                 .toList();
         System.out.println("Task 7 - personList: " + personList);
