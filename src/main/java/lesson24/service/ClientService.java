@@ -1,14 +1,12 @@
 package lesson24.service;
 
-import lesson24.entity.Status;
-import lesson24.util.Database;
 import lesson24.entity.Client;
+import lesson24.util.Database;
+import org.w3c.dom.ls.LSOutput;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ClientService {
 
@@ -90,7 +88,8 @@ public class ClientService {
         }
     }
 
-    public void getByPhone(long clientPhone) {
+    public Client getByPhone(long clientPhone) {
+        Client client = new Client();
         try (Connection connection = Database.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(queryGetByPhone)) {
             connection.setAutoCommit(false);
@@ -109,6 +108,7 @@ public class ClientService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return client;
     }
 
     public List<Client> getByIdAccount() {
@@ -133,7 +133,8 @@ public class ClientService {
         return clients;
     }
 
-    public void getByNameMailAlias() {
+    public List<String> getByNameMailAlias() {
+        List<String> clients = new ArrayList<>();
         try (Connection connection = Database.getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(queryGetByNameMailAlias);
@@ -142,11 +143,14 @@ public class ClientService {
                 String name = resultSet.getString("name");
                 String email = resultSet.getString("email");
                 String alias = resultSet.getString("alias");
-                System.out.println(name + " " + email + " " + alias);
+                clients.add(name);
+                clients.add(email);
+                clients.add(alias + "\n");
             }
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return clients;
     }
 }

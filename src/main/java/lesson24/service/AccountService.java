@@ -78,7 +78,8 @@ public class AccountService {
         }
     }
 
-    public void getByNumber(double value) {
+    public String getByNumber(double value) {
+        String number = null;
         try (Connection connection = Database.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(queryGetNumber)) {
             connection.setAutoCommit(false);
@@ -86,12 +87,13 @@ public class AccountService {
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String number = resultSet.getString("number");
+                number = resultSet.getString("number");
                 System.out.println(number);
             }
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return number;
     }
 }

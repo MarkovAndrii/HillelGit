@@ -70,6 +70,6 @@ public class Main {
         // Task7. Добавить метод для получения значений clients.name, clients.email, statuses.alias
         // из таблицы клиентов(Clients) и из таблицы статусов(Statuses) используя join 3х таблиц
         // и где возраст пользователей старше 18 лет. (Если возраста нет, надо что-то сделать чтобы был)
-        clientService.getByNameMailAlias(); // Before the task - added a column AGE to the table CLIENTS
+        System.out.println(clientService.getByNameMailAlias()); // Before the task - added a column AGE to the table CLIENTS
     }
 }
