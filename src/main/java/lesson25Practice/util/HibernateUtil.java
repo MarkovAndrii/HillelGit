@@ -1,26 +1,28 @@
-package lesson25.util;
+package lesson25Practice.util;
 
 import lesson25.model.Account;
 import lesson25.model.Client;
 import lesson25.model.Status;
+import lesson25Practice.entity.Car;
+import lesson25Practice.entity.CarInfo;
+import lesson25Practice.entity.Owner;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Properties;
 
-public class HibernateConfig {
+public class HibernateUtil {
     private static SessionFactory sessionFactory;
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                Properties properties = new Properties();   // for clients_hibernate.properties
-                Configuration configuration = new Configuration().addProperties(properties);   // for clients_hibernate.properties
-//                Configuration configuration = new Configuration().configure();  // for hibernate.cfg.xml
+                Properties properties = new Properties();
+                Configuration configuration = new Configuration().addProperties(properties);
 
-                configuration.addAnnotatedClass(Client.class);
-                configuration.addAnnotatedClass(Status.class);
-                configuration.addAnnotatedClass(Account.class);
+                configuration.addAnnotatedClass(Car.class);
+                configuration.addAnnotatedClass(Owner.class);
+                configuration.addAnnotatedClass(CarInfo.class);
 
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties());
