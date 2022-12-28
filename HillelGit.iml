@@ -15,7 +15,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="HillelGit" />
+          <factory-entry name="HillelGit" value="35e79f8d-932c-4e13-8edf-e7956dc9119b" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
