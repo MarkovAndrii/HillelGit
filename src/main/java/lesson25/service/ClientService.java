@@ -15,6 +15,7 @@ public class ClientService {    // logic execution
     }
 
     public void update(Client client) {
+
         clientDao.update(client);
     }
 
@@ -25,16 +26,16 @@ public class ClientService {    // logic execution
     }
 
     public void delete(Client client) {
+
         clientDao.delete(client);
     }
 
-
     public List<Client> getAll() {   // interlayer method
+
         return clientDao.getAll();
     }
 
     public Client getByPhone(Long phone) {
-        Client client = clientDao.getByPhone(phone);
-        return client;
+        return clientDao.getByPhone(phone);
     }
 }
