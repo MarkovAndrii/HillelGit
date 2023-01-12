@@ -6,6 +6,6 @@
 <body>
 <h1>Welcome to page for read</h1>
 <a href="write">Go to page for writing</a>
-<a href="http://localhost:8080/">back to start page</a>
+<a href="/">back to start page</a>
 </body>
 </html>
