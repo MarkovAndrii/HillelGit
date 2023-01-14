@@ -13,7 +13,7 @@ public class HibernateConfig {
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                Configuration configuration = new Configuration().configure();  // for hibernate.cfg.xml
+                Configuration configuration = new Configuration().configure();  // for old_hibernate.cfg.xml
 
                 configuration.addAnnotatedClass(Client.class);
                 configuration.addAnnotatedClass(House.class);

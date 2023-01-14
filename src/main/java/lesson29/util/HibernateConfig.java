@@ -1,8 +1,9 @@
-package lesson25.util;
+package lesson29.util;
 
-import lesson25.model.Account;
-import lesson25.model.Client;
-import lesson25.model.Status;
+import lesson29.entity.Account;
+import lesson29.entity.Client;
+import lesson29.entity.Status;
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -11,12 +12,14 @@ import java.util.Properties;
 
 public class HibernateConfig {
     private static SessionFactory sessionFactory;
+
+    private static final Logger logger = Logger.getLogger(HibernateConfig.class);
+
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                Properties properties = new Properties();   // for hibernate.properties
-                Configuration configuration = new Configuration().addProperties(properties);   // for hibernate.properties
-//                Configuration configuration = new Configuration().configure();  // for old_hibernate.cfg.xml
+                Properties properties = new Properties();
+                Configuration configuration = new Configuration().addProperties(properties);
 
                 configuration.addAnnotatedClass(Client.class);
                 configuration.addAnnotatedClass(Status.class);
@@ -26,7 +29,7 @@ public class HibernateConfig {
                         .applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
             } catch (Exception e) {
-                System.out.println("Session factory Error: " + e);
+                logger.error("getSessionFactory", e);
             }
         }
         return sessionFactory;
