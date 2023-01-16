@@ -1,0 +1,99 @@
+2023-01-14 09:21:47 DEBUG ClientService:16 - create: Client(id=null, name=Anna, age=21, phone=5071285785, email=anna@gmail.com, about=new)
+2023-01-14 09:21:50 DEBUG ClientDaoImpl:21 - create: Client(id=null, name=Anna, age=21, phone=5071285785, email=anna@gmail.com, about=new)
+2023-01-14 09:23:59 DEBUG ClientService:21 - update: Client(id=5, name=Bred, age=41, phone=93137777267, email=b@gmail.com, about=new)
+2023-01-14 09:23:59 DEBUG ClientDaoImpl:34 - update: Client(id=5, name=Bred, age=41, phone=93137777267, email=b@gmail.com, about=new)
+2023-01-14 09:25:57 DEBUG ClientService:26 - getById: 1
+2023-01-14 09:26:00 DEBUG ClientDaoImpl:59 - getById: 1
+2023-01-14 09:28:16 DEBUG ClientService:26 - getById: 5
+2023-01-14 09:28:20 DEBUG ClientDaoImpl:60 - getById: 5
+2023-01-14 09:28:20 DEBUG ClientService:31 - delete: Client(id=5, name=Bred, age=41, phone=93137777267, email=b@gmail.com, about=new)
+2023-01-14 09:28:20 DEBUG ClientDaoImpl:47 - delete: Client(id=5, name=Bred, age=41, phone=93137777267, email=b@gmail.com, about=new)
+2023-01-14 09:35:44 DEBUG ClientService:41 - getByPhone: 5071285785
+2023-01-14 09:35:44 DEBUG ClientDaoImpl:90 - getByPhone: 5071285785
+2023-01-14 09:42:39 DEBUG StatusService:14 - create: Status(id=null, alias=STANDARD, description=base services)
+2023-01-14 09:42:43 DEBUG StatusDaoImpl:19 - create: Status(id=null, alias=STANDARD, description=base services)
+2023-01-14 09:43:44 DEBUG StatusService:14 - create: Status(id=null, alias=BUSINESS, description=premium services)
+2023-01-14 09:43:48 DEBUG StatusDaoImpl:19 - create: Status(id=null, alias=BUSINESS, description=premium services)
+2023-01-14 09:44:04 DEBUG StatusService:14 - create: Status(id=null, alias=VIP, description=vip services)
+2023-01-14 09:44:07 DEBUG StatusDaoImpl:19 - create: Status(id=null, alias=VIP, description=vip services)
+2023-01-14 09:46:06 DEBUG StatusService:19 - update: Status(id=3, alias=NEW55, description=like+))
+2023-01-14 09:46:06 DEBUG StatusDaoImpl:32 - update: Status(id=3, alias=NEW55, description=like+))
+2023-01-14 09:48:11 DEBUG StatusService:25 - getById: 2
+2023-01-14 09:48:14 DEBUG StatusDaoImpl:57 - getById: 2
+2023-01-14 09:49:22 DEBUG StatusService:25 - getById: 3
+2023-01-14 09:49:25 DEBUG StatusDaoImpl:58 - getById: 3
+2023-01-14 09:49:25 DEBUG StatusService:30 - delete: Status(id=3, alias=NEW55, description=like+))
+2023-01-14 09:49:25 DEBUG StatusDaoImpl:45 - delete: Status(id=3, alias=NEW55, description=like+))
+2023-01-14 09:52:41 DEBUG AccountService:13 - create: Account(id=null, clientId=10, number=455645517, value=60.0)
+2023-01-14 09:52:44 DEBUG AccountDaoImpl:19 - create: Account(id=null, clientId=10, number=455645517, value=60.0)
+2023-01-14 09:54:40 DEBUG AccountService:18 - update: Account(id=34, clientId=25, number=5555555555, value=990.0)
+2023-01-14 09:54:40 DEBUG AccountDaoImpl:32 - update: Account(id=34, clientId=25, number=5555555555, value=990.0)
+2023-01-14 09:56:12 DEBUG AccountService:23 - getById: 2
+2023-01-14 09:56:16 DEBUG AccountDaoImpl:57 - getById: 2
+2023-01-14 09:57:41 DEBUG AccountService:23 - getById: 34
+2023-01-14 09:57:44 DEBUG AccountDaoImpl:58 - getById: 34
+2023-01-14 09:57:44 DEBUG AccountService:28 - delete: Account(id=34, clientId=25, number=5555555555, value=990.0)
+2023-01-14 09:57:44 DEBUG AccountDaoImpl:45 - delete: Account(id=34, clientId=25, number=5555555555, value=990.0)
+2023-01-14 09:59:35 DEBUG ClientService:26 - getById: 1
+2023-01-14 09:59:36 ERROR HibernateConfig:33 - getSessionFactory
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:86)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:479)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:85)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:709)
+	at lesson29.util.HibernateConfig.getSessionFactory(HibernateConfig.java:31)
+	at lesson29.dao.ClientDaoImpl.getById(ClientDaoImpl.java:56)
+	at lesson29.service.ClientService.getById(ClientService.java:27)
+	at lesson29.Main.main(Main.java:38)
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.postgresql.Driver99]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:133)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.loadDriverIfPossible(DriverManagerConnectionProviderImpl.java:172)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator(DriverManagerConnectionProviderImpl.java:110)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:92)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:76)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:146)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 16 more
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : org.postgresql.Driver99
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:210)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:588)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:488)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:130)
+	... 28 more
+2023-01-14 09:59:36 ERROR Main:93 - main
+java.lang.NullPointerException: Cannot invoke "org.hibernate.SessionFactory.openSession()" because "sessionFactory" is null
+	at lesson29.dao.ClientDaoImpl.getById(ClientDaoImpl.java:57)
+	at lesson29.service.ClientService.getById(ClientService.java:27)
+	at lesson29.Main.main(Main.java:38)
+2023-01-14 10:01:03 DEBUG ClientService:26 - getById: 1
+2023-01-14 10:01:07 DEBUG ClientDaoImpl:60 - getById: 1
+2023-01-14 10:01:07 ERROR Main:93 - main
+org.hibernate.UnknownEntityTypeException: Unable to locate persister: lesson29.entity.Client
+	at org.hibernate.metamodel.internal.MetamodelImpl.locateEntityPersister(MetamodelImpl.java:732)
+	at org.hibernate.internal.SessionImpl.locateEntityPersister(SessionImpl.java:3037)
+	at org.hibernate.internal.SessionImpl.access$1800(SessionImpl.java:202)
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.<init>(SessionImpl.java:2733)
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.<init>(SessionImpl.java:2716)
+	at org.hibernate.internal.SessionImpl.byId(SessionImpl.java:1185)
+	at org.hibernate.internal.SessionImpl.get(SessionImpl.java:1019)
+	at lesson29.dao.ClientDaoImpl.getById(ClientDaoImpl.java:61)
+	at lesson29.service.ClientService.getById(ClientService.java:27)
+	at lesson29.Main.main(Main.java:38)
