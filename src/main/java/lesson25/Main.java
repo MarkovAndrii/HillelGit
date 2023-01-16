@@ -62,9 +62,9 @@ public class Main {
         Account account = new Account();
 
         //create account
-//        account.setClientId(15);
-//        account.setNumber("111645990");
-//        account.setValue(570.15F);
+//        account.setClientId(2);
+//        account.setNumber("771645990");
+//        account.setValue(570F);
 //        accountService.create(account);
 
         //update account
@@ -83,7 +83,7 @@ public class Main {
 //        accountService.delete(accountForDelete);
 
         //get client by phone
-        Client clientByPhone = clientService.getByPhone(888000L);
-        System.out.println(clientByPhone);
+//        Client clientByPhone = clientService.getByPhone(888000L);
+//        System.out.println(clientByPhone);
     }
 }
