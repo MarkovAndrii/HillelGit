@@ -12,11 +12,12 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void create(Account account) {
+        logger.debug(String.format("create: %s", account));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("create: %s", account));
         session.save(account);
 
         transaction.commit();
@@ -25,11 +26,12 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void update(Account account) {
+        logger.debug(String.format("update: %s", account));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("update: %s", account));
         session.update(account);
 
         transaction.commit();
@@ -38,11 +40,12 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void delete(Account account) {
+        logger.debug(String.format("delete: %s", account));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("delete: %s", account));
         session.delete(account);
 
         transaction.commit();
@@ -51,11 +54,12 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public Account getById(int id) {
+        logger.debug(String.format("getById: %d", id));
+        
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("getById: %d", id));
         Account account = session.get(Account.class, id);
 
         transaction.commit();

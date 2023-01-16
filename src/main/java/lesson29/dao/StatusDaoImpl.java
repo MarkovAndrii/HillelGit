@@ -12,11 +12,12 @@ public class StatusDaoImpl implements StatusDao {
     private final Logger logger = Logger.getLogger(StatusDaoImpl.class);
     @Override
     public void create(Status status) {
+        logger.debug(String.format("create: %s", status));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("create: %s", status));
         session.save(status);
 
         transaction.commit();
@@ -25,11 +26,12 @@ public class StatusDaoImpl implements StatusDao {
 
     @Override
     public void update(Status status) {
+        logger.debug(String.format("update: %s", status));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("update: %s", status));
         session.update(status);
 
         transaction.commit();
@@ -38,11 +40,12 @@ public class StatusDaoImpl implements StatusDao {
 
     @Override
     public void delete(Status status) {
+        logger.debug(String.format("delete: %s", status));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("delete: %s", status));
         session.delete(status);
 
         transaction.commit();
@@ -51,11 +54,12 @@ public class StatusDaoImpl implements StatusDao {
 
     @Override
     public Status getById(int id) {
+        logger.debug(String.format("getById: %d", id));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("getById: %d", id));
         Status status = session.get(Status.class, id);
 
         transaction.commit();

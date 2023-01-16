@@ -14,11 +14,12 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void create(Client client) {
+        logger.debug(String.format("create: %s", client));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("create: %s", client));
         session.save(client);
 
         transaction.commit();
@@ -27,11 +28,12 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void update(Client client) {
+        logger.debug(String.format("update: %s", client));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("update: %s", client));
         session.update(client);
 
         transaction.commit();
@@ -40,11 +42,12 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public void delete(Client client) {
+        logger.debug(String.format("delete: %s", client));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("delete: %s", client));
         session.delete(client);
 
         transaction.commit();
@@ -53,11 +56,12 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public Client getById(int id) {
+        logger.debug(String.format("getById: %d", id));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("getById: %d", id));
         Client client = session.get(Client.class, id);
 
         transaction.commit();
@@ -68,11 +72,12 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public List<Client> getAll() {  // No use(for example)
+        logger.debug("getAll");
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug("getAll");
         List<Client> clients = session.createQuery("from Client").list();
 
         transaction.commit();
@@ -83,11 +88,12 @@ public class ClientDaoImpl implements ClientDao {
 
     @Override
     public Client getByPhone(Long phone) {
+        logger.debug(String.format("getByPhone: %d", phone));
+
         SessionFactory sessionFactory = HibernateConfig.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        logger.debug(String.format("getByPhone: %d", phone));
         Client client = (Client) session.createQuery("from Client where phone=:p")
                 .setParameter("p", phone)
                 .getSingleResult();
